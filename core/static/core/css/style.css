@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Nabla&family=Roboto:wght@400;700;900&family=Rubik+Iso&display=swap');
+
+* {
+    padding:0;
+    margin: 0;
+    font-family: 'Roboto';
+}
+
+.content-container {
+    max-width: 1245px;
+    margin: 0 auto;
+    padding: 20px;
+
+}
+
+header {
+    color: aliceblue;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgb(71, 71, 71);
+    align-items: center;
+    height: 6vh;
+    min-height: 24px;
+}
+
+.nav-links ul{
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li a {
+    color: aliceblue;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 1.1em;
+    font-weight: lighter;
+}
+
+/* grid das marcas */
+
+#banner {
+    height: 20vh;
+    object-fit: cover;
+}
+
+.brands-grid-container {
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+.brand-grid-container {
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 0px;
+}
+
+.brands-grid-item {
+    position: relative;
+    border-radius: 10px;
+    text-align: justify;
+    background-color: #f1f1f1;
+    overflow: hidden;
+    /* margin: 0 20px 0 20px; */
+}
+
+.brand-thumb {
+    position: relative;
+    overflow: hidden;
+
+}
+.pai {
+    float: left;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    object-fit: cover;
+}
+.brand-thumb img {
+    /* display: block; */
+    width: 100%;
+    height: 250px;
+    filter: grayscale(45%);
+    border-radius: 10px 10px 0 0;
+    object-fit: cover;
+    transition: 1s;
+
+}
+
+.brand-thumb img:hover{
+    filter: none;
+    transform: scale(1.05);
+}
+
+.teste {
+    position: relative;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.brand-title, .bike-name-link {
+    text-decoration: none;
+    color: black;
+    transition: 0.5s;
+}
+.brand-title:hover {
+    text-decoration: none;
+    color: green;
+}
+.bike-name-link:hover {
+    text-decoration: none;
+    color: green;
+}
+h2 {
+    font-family: 'Trebuchet MS', sans-serif;
+    color: black;
+}
+
+.description-cut {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+
+ /* grid das bicicletas */
+.brand-grid-item {
+     text-align: justify;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    padding: 0 20px 0 20px;
+}
+
+.item-thumb {
+    border-radius: 10px 10px 0 0;
+    width: 100%;
+    height: 250px;
+    min-height: 150px;
+    object-fit: cover;
+}
+
+.item-description {
+    text-align: center;
+    padding: 0 20px 8px 20px;
+}
+
+.gray-bg {
+    background-color: #f1f1f1;
+}
+
+.brand-detail-description {
+
+    padding: 15px;
+    height: 20vh;
+}

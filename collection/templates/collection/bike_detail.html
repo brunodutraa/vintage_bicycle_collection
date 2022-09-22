@@ -1,0 +1,10 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="graph">
+
+        <img src="{{ bike.photo_set.last.small_photo.url }}" alt="">
+        {{ bike.bike_model }}
+    </div>
+{% endblock %}

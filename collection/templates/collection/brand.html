@@ -1,0 +1,27 @@
+{% extends 'core/base.html' %}
+{% load static%}
+
+
+{% block content %}
+
+<img id="banner" style="width:100%;padding-top:0px;" src="{%static "core/img/mg_1675.jpg"%}" alt="">
+<div class="content-container">
+     
+    <h2>Marcas de bicicletas que temos em nosso acervo:</h2><br>
+    <div class="brands-grid-container">
+        {% for brand in query %}
+            <div class="brands-grid-item">
+                <div class="brand-thumb">
+                <a href="{% url 'brand_detail' slug=brand.slug %}"><img src="{{brand.logo.url}}" alt=""></a>
+                </div> 
+                <div class="teste">
+                    <h2><a href="{% url 'brand_detail' slug=brand.slug %}" class="brand-title">{{brand.name}}</a></h2>
+                    <p class="description-cut">{{brand.description}}</p>
+                </div>
+                
+
+            </div>
+    {% endfor %}
+    </div>
+</div>
+{% endblock %}
