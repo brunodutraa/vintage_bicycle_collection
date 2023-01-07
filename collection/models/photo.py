@@ -18,7 +18,7 @@ class Photo(models.Model):
     """This class defines a photo of a bicycle"""
 
     bicycle = models.ForeignKey(Bicycle, on_delete=models.CASCADE, verbose_name='Bicicleta')
-    photo = models.ImageField('Foto', upload_to=bicycle_photo_directory)
+    photo = models.ImageField('Foto', upload_to=bicycle_photo_directory, editable=False)
     small_photo = models.ImageField(editable=False, upload_to = bicycle_small_photo_directory)
 
     class Meta:

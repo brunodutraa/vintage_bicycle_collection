@@ -1,17 +1,19 @@
 from multiprocessing import context
-from django.shortcuts import render, get_object_or_404
-from .models import Brand, Bicycle
+
 import plotly.express as px
+from django.shortcuts import get_object_or_404, render
 from plotly.offline import plot
+
+from .models import Bicycle, Brand
 
 
 def all_brands(request):
     lista = []
+    fotos = []
     bbrand_query = Brand.objects.all()
 
-        # lista.append(brd)
     for brd in bbrand_query:
-        # if brd.bicycle_set.all():
+        # fotos.append(brd.im)
         lista.append(brd)
     context = {
         'query': lista
@@ -52,18 +54,3 @@ def bike_detail(request, bike_slug, brandslug=None):
     }
 
     return render(request, 'collection/bike_detail.html', context)
-
-
-
-def plot_view(request):
-    dados_x = [2011, '2019', '2020', '2021', 2025]
-    dados_y = [10, 20, 5, 40, 50]
-
-    #fig = px.line(x = dados_x, y = dados_y)
-    fig = px.bar(x = dados_x, y = dados_y)
-    fig2 = plot(fig, output_type='div')
-    context = {
-        'fig' : fig2,
-    }
-
-    return render(request, 'collection/plot_view.html', context)

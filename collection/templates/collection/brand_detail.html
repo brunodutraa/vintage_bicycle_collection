@@ -3,6 +3,7 @@
 
 {% block content%}
 
+<img class="banner" src="{{brand_obj.logo.url}}" alt="">
 <div class="content-container">
 <div class="brand-detail-description gray-bg">
     <h1> {{brand_obj.name}}</h1><br>
@@ -22,7 +23,7 @@
                     <img src="{{ bike.photo_set.all.first.small_photo.url }}" alt="" class="item-thumb">
                     <div class="item-description">
                         <h2><a class="bike-name-link" href=" {% url 'bike_detail' brandslug=brand_slug  bike_slug=bike.slug%} ">{{bike.bike_model}}</a></h2>
-                        <span class="bike-year"><strong>Ano:</strong> {{bike.year}}</span>
+                        <span class="bike-year">{{bike.year}}</span>
                         {% comment %} <p class="description-cut">{{bike.description}}</p> {% endcomment %}
                     </div>
                 </div>
