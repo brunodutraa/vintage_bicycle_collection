@@ -4,19 +4,24 @@ import plotly.express as px
 from django.shortcuts import get_object_or_404, render
 from plotly.offline import plot
 
+from core.models import CarouselImage
+
 from .models import Bicycle, Brand
 
 
 def all_brands(request):
-    lista = []
-    fotos = []
-    bbrand_query = Brand.objects.all()
+    brand_list = []
+    carousel_list = []
 
+    bbrand_query = Brand.objects.all()
+    carousel_query = CarouselImage.objects.all()
     for brd in bbrand_query:
-        # fotos.append(brd.im)
-        lista.append(brd)
+        brand_list.append(brd)
+    for car in carousel_query:
+        carousel_list.append(car)
     context = {
-        'query': lista
+        'brand_query': brand_list,
+        'carousel_query': carousel_list
     }
 
     return render(request, 'collection/brand.html', context)
@@ -42,13 +47,11 @@ def brand_detail(request, slug):
     return render(request, 'collection/brand_detail.html', context)
 
 def bike_detail(request, bike_slug, brandslug=None):
-    
+
     try:
         bike = get_object_or_404(Bicycle, slug=bike_slug)
-
     except:
         bike = False
-
     context={
         'bike': bike,
     }
