@@ -1,6 +1,8 @@
 from multiprocessing import context
+
 from django.db import models
 from django.utils.text import slugify
+
 from collection.utils import make_thumbnail
 
 
@@ -19,13 +21,13 @@ class Brand(models.Model):
     small_logo = models.ImageField(editable=False, upload_to=brand_small_logo_directory)
     slug = models.SlugField('Identificador', unique=True, blank=True, null=True)
 
-
     def __str__(self) -> str:
         return f"{self.name}"
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
         self.small_logo = make_thumbnail(self.logo)
+        self.name = self.name.upper()
         super().save(*args, **kwargs)
     
     class Meta:

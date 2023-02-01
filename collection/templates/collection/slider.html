@@ -1,9 +1,9 @@
 {% extends 'core/base.html' %}
-{% load static %}
+{% load static%}
 
 {% block content %}
-    {% if bike %}
-        <div class="content-container">
+
+        <div id="mobileSlider" class="carousel slide" data-ride="carousel">
             <div id="carouselExampleIndicators" class="carousel slide">
                 <div class="carousel-indicators">
                     {% for photo in bike_photos %}
@@ -15,14 +15,17 @@
                     {% endfor %}
                 </div>
                 
-                <div class="carousel-inner">
+
+  <!-- Slides -->
+
+<div class="carousel-inner">
                     {% for photo in bike_photos %}
                         {% if forloop.counter == 1%}
-                            <div class="carousel-item active bruno">
+                            <div class="carousel-item active">
                                 <img src="{{photo.photo.url}}" class="d-block w-100" alt="...">
                             </div>
                         {% else %}    
-                            <div class="carousel-item bruno">
+                            <div class="carousel-item">
                                 <img src="{{photo.photo.url}}" class="d-block w-100" alt="...">
                             </div>
                         {% endif%}
@@ -36,11 +39,40 @@
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Próximo</span>
                 </button>
-            </div>
-            <h1 style="margin-top: 15px; font-size: 50pt;">{{ bike.bike_model}} - {{ bike.year}}</h1>
-            <p>{{bike.description}}</p>
-        </div>
-    {% else %}
-        <h1>Bicicleta {{ bikeslug }} não está cadastrada</h1>
-    {% endif%}
+
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://www.reneelab.biz/wp-content/uploads/sites/9/2019/06/2k4k06.png" alt="Slide 1">
+      <div class="carousel-caption">
+        <h3>Título do Slide 1</h3>
+        <p>Descrição do Slide 1</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="https://macmagazine.com.br/wp-content/uploads/2012/03/09-1080p.jpg" alt="Slide 2">
+      <div class="carousel-caption">
+        <h3>Título do Slide 2</h3>
+        <p>Descrição do Slide 2</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="https://www.imymac.com/images/technology/720p-vs-1080p.png" alt="Slide 3">
+      <div class="carousel-caption">
+        <h3>Título do Slide 3</h3>
+        <p>Descrição do Slide 3</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Controles -->
+  <a class="carousel-control-prev" href="#mobileSlider" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Anterior</span>
+  </a>
+  <a class="carousel-control-next" href="#mobileSlider" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Próximo</span>
+  </a>
+</div>
+
 {% endblock %}
